@@ -2,6 +2,8 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 import fetch from "node-fetch";
+import express from "express";
+
 
 // ── Base URL — swap this to your Render URL once deployed ──────────────
 const BASE_URL = process.env.SHOP_URL || "https://techshop-sxdi.onrender.com/";
@@ -310,8 +312,24 @@ server.tool(
 );
 
 // ── Start the server ───────────────────────────────────────────────────
-const transport = new StdioServerTransport();
-await server.connect(transport);
+// Create an Express app
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Simple health check route
+app.get("/", (req, res) => res.send("TechShop MCP Server is running!"));
+
+// Start Express server
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+});
+
+// Connect MCP server using StdioServerTransport in background
+(async () => {
+  const transport = new StdioServerTransport();
+  await server.connect(transport);
+  console.log("MCP server connected.");
+})();
 
 // ──────────────────────────────────────────────────────────────────────
 // TOOL 8: Generate a formatted test report (to be saved via Filesystem MCP)
