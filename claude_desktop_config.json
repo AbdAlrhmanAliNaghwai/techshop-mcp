@@ -1,0 +1,23 @@
+{
+  "mcpServers": {
+    "techshop": {
+      "url": "https://techshop-sxdi.onrender.com/",
+      "command": "node",
+      "args": [
+        "C:\\Projects\\techshop-mcp\\server.js"
+      ],
+      "env": {
+        "SHOP_URL": "https://techshop-sxdi.onrender.com"
+      }
+    },
+    "filesystem": {
+      "url": "https://techshop-sxdi.onrender.com/",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "C:\\Projects\\TestReports"
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "techshop-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for automating TechShop test scenarios",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  }
+}
