@@ -1,6 +1,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
+import fetch from "node-fetch";
 
 // ── Base URL — swap this to your Render URL once deployed ──────────────
 const BASE_URL = process.env.SHOP_URL || "https://techshop-sxdi.onrender.com/";
